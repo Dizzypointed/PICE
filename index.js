@@ -26,7 +26,7 @@ inp.addEventListener("keypress", (e) => {
     log.appendChild(
       setText(
         document.createElement("div"),
-        `Decmail ${index + 1} is not: ${e.key}`
+        `Decimal ${index + 1} is not: ${e.key}`
       )
     );
   }
