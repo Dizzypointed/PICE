@@ -1,0 +1,22 @@
+{
+  "name": "pice",
+  "version": "1.0.0",
+  "description": "Practice PI decimals",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Dizzypointed/PICE.git"
+  },
+  "keywords": [
+    "PI"
+  ],
+  "author": "Christoffer Erngren",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dizzypointed/PICE/issues"
+  },
+  "homepage": "https://github.com/Dizzypointed/PICE#readme"
+}
