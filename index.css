@@ -6,9 +6,21 @@ p {
   margin-top: 0.4rem;
 }
 
+.flex {
+  display: flex;
+}
+
+button {
+  margin-left: 10px;
+}
+
 div,
 input {
   font-size: 20px;
+}
+
+#streak {
+  margin-bottom: 10px;
 }
 
 #log {

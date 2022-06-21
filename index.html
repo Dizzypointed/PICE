@@ -8,9 +8,13 @@
   </head>
   <body>
     <h1>Practice decimals of PI!</h1>
-    <p>Supports %d% decimals</p>
+    <p class="flex">
+      <span>Supports %d% decimals</span>
+      <button onclick="reset()">reset</button>
+    </p>
+    <div id="streak">Streak count: %d%</div>
     <div>
-      <span id="pi">3.</span
+      <span id="pi"></span
       ><input type="number" name="decimal" id="decimal" min="0" max="9" />
     </div>
     <div id="log"></div>
