@@ -62,3 +62,4 @@ inp.addEventListener("keypress", (e) => {
 });
 
 reset();
+inp.focus();
