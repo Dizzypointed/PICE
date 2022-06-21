@@ -10,6 +10,10 @@ function setText(elem, text) {
   return elem;
 }
 
+((p) => (p.innerText = p.innerText.replace("%d%", decimals.length)))(
+  document.querySelector("p")
+);
+
 inp.addEventListener("keypress", (e) => {
   if (e.key === decimals.charAt(index)) {
     inp.classList.remove("error");
