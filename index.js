@@ -1,9 +1,9 @@
+let index = 0;
 const decimals =
   "141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982148086513282306647093844609550582231725359408128481";
 const inp = document.getElementById("decimal");
 const pi = document.getElementById("pi");
 const log = document.getElementById("log");
-let index = 0;
 
 function setText(elem, text) {
   elem.textContent = text;
