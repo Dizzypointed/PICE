@@ -1,0 +1,49 @@
+div,
+input {
+  font-size: 20px;
+}
+
+#log {
+  margin-top: 50px;
+}
+
+input {
+  margin-left: 5px;
+  border-style: solid;
+}
+
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.error {
+  border-color: red;
+  outline-color: red;
+  background-color: #ffd2d2;
+  animation-name: wrong;
+  animation-duration: 0.5s;
+}
+
+.success {
+  border-color: green;
+  outline-color: green;
+  background-color: #d3ffd3;
+}
+
+@keyframes wrong {
+  0% {
+    transform: translateX(10px);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
