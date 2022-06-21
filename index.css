@@ -1,3 +1,11 @@
+h1 {
+  margin-bottom: 0.4rem;
+}
+
+p {
+  margin-top: 0.4rem;
+}
+
 div,
 input {
   font-size: 20px;
