@@ -1,4 +1,4 @@
-let index, unbroken, streak, best;
+let index, unbroken, streak, best, correct;
 const decimals =
   "141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982148086513282306647093844609550582231725359408128481";
 const inp = document.getElementById("decimal");
@@ -7,8 +7,9 @@ const log = document.getElementById("log");
 const strk = document.getElementById("streak");
 const strkText = strk.innerText;
 
-setText = (elem, text) => {
+setText = (elem, text, classes) => {
   elem.textContent = text;
+  classes && classes.forEach((c) => c && elem.classList.add(c));
   return elem;
 };
 
@@ -16,7 +17,8 @@ reset = () => {
   streak = 0;
   unbroken = true;
   index = 0;
-  pi.innerText = "3.";
+  pi.innerHTML = "";
+  pi.appendChild(setText(document.createElement("span"), "3."));
   log.innerHTML = "";
   inp.classList.remove("success");
   inp.classList.remove("error");
@@ -24,6 +26,7 @@ reset = () => {
   inp.value = "";
   strk.innerText = strkText.replace("%d%", streak);
   best = localStorage.getItem("streak");
+  correct = true;
 };
 
 ((p) => (p.innerText = p.innerText.replace("%d%", decimals.length)))(
@@ -34,7 +37,13 @@ inp.addEventListener("keypress", (e) => {
   if (e.key === decimals.charAt(index)) {
     inp.classList.remove("error");
     inp.classList.add("success");
-    pi.innerText += `${e.key}${(index + 1) % 4 ? "" : " "}`;
+    pi.appendChild(
+      setText(document.createElement("span"), e.key, [
+        (index + 1) % 4 ? "digit" : "digitbreak",
+        !correct && "error",
+      ])
+    );
+    correct = true;
     index++;
     if (unbroken) {
       streak++;
@@ -48,6 +57,7 @@ inp.addEventListener("keypress", (e) => {
       }
     }
   } else {
+    correct = false;
     unbroken = false;
     inp.classList.add("error");
     inp.classList.remove("success");

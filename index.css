@@ -36,6 +36,20 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
+.digit,
+.digitbreak {
+  border: 1px #797979 solid;
+}
+
+.digit + .digit {
+  border-left: 0;
+}
+
+.digitbreak {
+  margin-right: 5px;
+  border-left: 0;
+}
+
 .error {
   border-color: red;
   outline-color: red;
