@@ -34,6 +34,8 @@ reset = () => {
 );
 
 inp.addEventListener("keypress", (e) => {
+  if (!/\d/.test(e.key)) return;
+
   if (e.key === decimals.charAt(index)) {
     inp.classList.remove("error");
     inp.classList.add("success");
