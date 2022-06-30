@@ -34,15 +34,16 @@ reset = () => {
 );
 
 handleInput = (e) => {
-  if (!/\d/.test(e.key)) return;
-
-  if (e.key === decimals.charAt(index)) {
+  if (e == decimals.charAt(index)) {
     inp.classList.remove("error");
+    document
+      .querySelectorAll("button.error")
+      .forEach((el) => el.classList.remove("error"));
     inp.classList.add("success");
     pi.appendChild(
-      setText(document.createElement("span"), e.key, [
+      setText(document.createElement("span"), e, [
         (index + 1) % 4 ? "digit" : "digitbreak",
-        !correct && "error",
+        !correct && "wrong",
       ])
     );
     correct = true;
@@ -62,18 +63,20 @@ handleInput = (e) => {
     correct = false;
     unbroken = false;
     inp.classList.add("error");
+    console.log(`#btn${e}`, document.querySelector(`#btn${e}`));
+    document.querySelector(`#btn${e}`).classList.add("error");
     inp.classList.remove("success");
     log.appendChild(
       setText(
         document.createElement("div"),
-        `Decimal ${index + 1} is not: ${e.key}`
+        `Decimal ${index + 1} is not: ${e}`
       )
     );
   }
   inp.value = "";
 };
 
-inp.addEventListener("keypress", handleInput);
+inp.addEventListener("keypress", (e) => /\d/.test(e.key) && handleInput(e.key));
 
 reset();
 inp.focus();

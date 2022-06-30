@@ -8,17 +8,33 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
   <body>
-    <h1>Practice decimals of PI!</h1>
-    <p class="flex">
-      <span>Supports %d% decimals</span>
-      <button onclick="reset()">reset</button>
-    </p>
-    <div id="streak">Streak count: %d%</div>
-    <div>
-      <span id="pi"></span
-      ><input type="number" name="decimal" id="decimal" min="0" max="9" />
+    <div class="content">
+      <main>
+        <h1>Practice decimals of PI!</h1>
+        <p class="flex">
+          <span>Supports %d% decimals</span>
+          <button onclick="reset()">reset</button>
+        </p>
+        <div id="streak">Streak count: %d%</div>
+        <div>
+          <span id="pi"></span
+          ><input type="number" name="decimal" id="decimal" min="0" max="9" />
+        </div>
+      </main>
+      <div id="log"></div>
+      <div class="numpad">
+        <button id="btn1" onclick="handleInput(1)">1</button>
+        <button id="btn2" onclick="handleInput(2)">2</button>
+        <button id="btn3" onclick="handleInput(3)">3</button>
+        <button id="btn4" onclick="handleInput(4)">4</button>
+        <button id="btn5" onclick="handleInput(5)">5</button>
+        <button id="btn6" onclick="handleInput(6)">6</button>
+        <button id="btn7" onclick="handleInput(7)">7</button>
+        <button id="btn8" onclick="handleInput(8)">8</button>
+        <button id="btn9" onclick="handleInput(9)">9</button>
+        <button id="btn0" onclick="handleInput(0)">0</button>
+      </div>
     </div>
-    <div id="log"></div>
     <script src="index.js"></script>
   </body>
 </html>
