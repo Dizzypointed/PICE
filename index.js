@@ -27,6 +27,9 @@ reset = () => {
   strk.innerText = strkText.replace("%d%", streak);
   best = localStorage.getItem("streak");
   correct = true;
+  document
+    .querySelectorAll("button.error")
+    .forEach((el) => el.classList.remove("error"));
 };
 
 ((p) => (p.innerText = p.innerText.replace("%d%", decimals.length)))(
@@ -63,7 +66,6 @@ handleInput = (e) => {
     correct = false;
     unbroken = false;
     inp.classList.add("error");
-    console.log(`#btn${e}`, document.querySelector(`#btn${e}`));
     document.querySelector(`#btn${e}`).classList.add("error");
     inp.classList.remove("success");
     log.appendChild(
