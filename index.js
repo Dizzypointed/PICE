@@ -33,7 +33,7 @@ reset = () => {
   document.querySelector("p span")
 );
 
-inp.addEventListener("keypress", (e) => {
+handleInput = (e) => {
   if (!/\d/.test(e.key)) return;
 
   if (e.key === decimals.charAt(index)) {
@@ -71,7 +71,9 @@ inp.addEventListener("keypress", (e) => {
     );
   }
   inp.value = "";
-});
+};
+
+inp.addEventListener("keypress", handleInput);
 
 reset();
 inp.focus();
