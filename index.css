@@ -23,8 +23,14 @@ p {
 }
 
 .flex button {
-  margin-left: 10px;
-  font-size: 16px;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .flex button {
+    margin-left: 10px;
+    font-size: 16px;
+  }
 }
 
 .numpad {
@@ -40,7 +46,8 @@ p {
   height: 40px;
 }
 
-.numpad button:last-child {
+.numpad button:last-child,
+.numpad button:first-child {
   grid-column-end: span 3;
 }
 
