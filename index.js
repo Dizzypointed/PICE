@@ -31,7 +31,7 @@ reset = () => {
   inp.value = "";
   strk.innerText = strkText.replace("%d%", streak);
   best = localStorage.getItem("streak");
-  bestSplits = JSON.parse(localStorage.getItem("bestSplits") || {});
+  bestSplits = JSON.parse(localStorage.getItem("bestSplits")) || {};
   correct = true;
   document
     .querySelectorAll("button.error")
@@ -46,8 +46,8 @@ handleInput = (e) => {
   const timeString = (t) => {
     const m = Math.floor(t / 1000 / 60);
     const s = Math.floor((t / 1000) % 60);
-    console.log(t, m, s);
-    return `${m < 10 ? "0" : ""}${m}.${s < 10 ? "0" : ""}${s}`;
+    const ms = ("" + t).slice(-3);
+    return `${m < 10 ? "0" : ""}${m}.${s < 10 ? "0" : ""}${s}.${ms}`;
   };
 
   const registerTime = () => {
@@ -61,7 +61,13 @@ handleInput = (e) => {
         bestSplits[streak] = split;
         localStorage.setItem("bestSplits", JSON.stringify(bestSplits));
         splts.prepend(
-          setText("li", `streak ${streak}: ${splitTime} new best!`, ["success"])
+          setText(
+            "li",
+            `streak ${streak}: ${splitTime} new best! (-${timeString(
+              bestSplit - split
+            )})`,
+            ["success"]
+          )
         );
         return;
       }
