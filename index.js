@@ -80,5 +80,9 @@ handleInput = (e) => {
 
 inp.addEventListener("keypress", (e) => /\d/.test(e.key) && handleInput(e.key));
 
+handleKeyup = (ev) => {
+  if (ev.key === "Escape") reset();
+};
+
 reset();
 inp.focus();

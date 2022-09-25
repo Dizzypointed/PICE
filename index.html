@@ -18,7 +18,14 @@
         <div id="streak">Streak count: %d%</div>
         <div>
           <span id="pi"></span
-          ><input type="number" name="decimal" id="decimal" min="0" max="9" />
+          ><input
+            type="number"
+            onkeyup="handleKeyup(event)"
+            name="decimal"
+            id="decimal"
+            min="0"
+            max="9"
+          />
         </div>
       </main>
       <div id="log"></div>
