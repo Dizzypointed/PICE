@@ -22,6 +22,10 @@ p {
   display: flex;
 }
 
+.gap {
+  gap: 100px;
+}
+
 .flex button {
   display: none;
 }
@@ -66,10 +70,15 @@ input {
   margin-bottom: 10px;
 }
 
-#log {
+#stats {
   margin: 50px 0;
   height: 100%;
-  overflow: scroll;
+}
+
+#splits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 input {

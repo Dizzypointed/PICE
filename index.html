@@ -28,7 +28,18 @@
           />
         </div>
       </main>
-      <div id="log"></div>
+      <div id="stats" class="flex gap">
+        <div id="time">
+          <div id="timer"></div>
+          <div id="fastest"></div>
+          <p>Splits:</p>
+          <ol id="splits">
+            <!-- <li>10: 0.30 best: 0.28</li>
+            <li class="success">20: 1.01 new best!</li> -->
+          </ol>
+        </div>
+        <div id="log"></div>
+      </div>
       <div class="numpad">
         <button onclick="reset()">reset</button>
         <button id="btn1" onclick="handleInput(1)">1</button>
