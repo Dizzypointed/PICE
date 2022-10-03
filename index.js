@@ -6,14 +6,30 @@ const pi = document.getElementById("pi");
 const log = document.getElementById("log");
 const strk = document.getElementById("streak");
 const strkText = strk.innerText;
-const timer = document.getElementById("timer");
 const splts = document.getElementById("splits");
+const history = document.getElementById("history");
+
+timeString = (t) => {
+  const m = Math.floor(t / 1000 / 60);
+  const s = Math.floor((t / 1000) % 60);
+  const ms = ("" + t).slice(-3);
+  return `${m < 10 ? "0" : ""}${m}.${s < 10 ? "0" : ""}${s}.${ms}`;
+};
 
 setText = (elemType, text, classes) => {
   const elem = document.createElement(elemType);
   elem.textContent = text;
   classes && classes.forEach((c) => c && elem.classList.add(c));
   return elem;
+};
+
+renderHistory = () => {
+  bestSplits = JSON.parse(localStorage.getItem("bestSplits")) || {};
+  history.innerHTML = "";
+
+  Object.keys(bestSplits).forEach((s) =>
+    history.prepend(setText("li", `streak ${s}: ${timeString(bestSplits[s])}`))
+  );
 };
 
 reset = () => {
@@ -25,13 +41,13 @@ reset = () => {
   pi.appendChild(setText("span", "3."));
   log.innerHTML = "";
   splts.innerHTML = "";
+  renderHistory();
   inp.classList.remove("success");
   inp.classList.remove("error");
   strk.classList.remove("success");
   inp.value = "";
   strk.innerText = strkText.replace("%d%", streak);
   best = localStorage.getItem("streak");
-  bestSplits = JSON.parse(localStorage.getItem("bestSplits")) || {};
   correct = true;
   document
     .querySelectorAll("button.error")
@@ -43,13 +59,6 @@ reset = () => {
 );
 
 handleInput = (e) => {
-  const timeString = (t) => {
-    const m = Math.floor(t / 1000 / 60);
-    const s = Math.floor((t / 1000) % 60);
-    const ms = ("" + t).slice(-3);
-    return `${m < 10 ? "0" : ""}${m}.${s < 10 ? "0" : ""}${s}.${ms}`;
-  };
-
   const registerTime = () => {
     if (!time) time = new Date();
     if (!(streak % 10)) {
@@ -120,7 +129,9 @@ handleInput = (e) => {
     log.appendChild(
       setText(
         "div",
-        `Decimal ${index + 1} is not: ${e}; ${timeString(new Date() - time)}`
+        `Decimal ${index + 1} is not: ${e}; ${
+          time ? timeString(new Date() - time) : ""
+        }`
       )
     );
   }
