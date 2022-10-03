@@ -9,6 +9,10 @@ const strkText = strk.innerText;
 const splts = document.getElementById("splits");
 const history = document.getElementById("history");
 
+((p) => (p.innerText = p.innerText.replace("%d%", decimals.length)))(
+  document.querySelector(".content main p span")
+);
+
 timeString = (t) => {
   const m = Math.floor(t / 1000 / 60);
   const s = Math.floor((t / 1000) % 60);
@@ -53,10 +57,6 @@ reset = () => {
     .querySelectorAll("button.error")
     .forEach((el) => el.classList.remove("error"));
 };
-
-((p) => (p.innerText = p.innerText.replace("%d%", decimals.length)))(
-  document.querySelector("p span")
-);
 
 handleInput = (e) => {
   const registerTime = () => {
