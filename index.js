@@ -72,9 +72,9 @@ handleInput = (e) => {
         splts.prepend(
           setText(
             "li",
-            `streak ${streak}: ${splitTime} new best! (-${timeString(
-              bestSplit - split
-            )})`,
+            `streak ${streak}: ${splitTime} new best!${
+              bestSplit ? ` (${-timeString(bestSplit - split)})` : ""
+            }`,
             ["success"]
           )
         );
